@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-  },
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -25,10 +25,34 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM(["Winter", "Autumn", "Spring", "Summer"]),
       allowNull: true,
     },
-     createdInDb: {
-   type : DataTypes.BOOLEAN,
-   allowNull: false,
-   defaultValue: true,
- }
+
+
+    
   });
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// createdInDb: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: false,
+    //   defaultValue: true,
+    // }
