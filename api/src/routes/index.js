@@ -52,8 +52,7 @@ const getDbInfo = async () => {
 
 const getActivitiesDbInfo = async () => {
     return await Activities.findAll({
-
-    })
+     })
 
 }
 
@@ -120,13 +119,11 @@ router.get('/countries/:id', async (req, res) => { //'/countries/arg
 
 router.get('/activities', async (req, res) => {
 
-    //const { name } = req.body
     let activitiesTotal = await getActivitiesDbInfo();
-
-
 
     res.status(200).send(activitiesTotal)
 
+    
 })
 
 
@@ -168,11 +165,10 @@ router.post('/activities', async (req, res) => {
     let { country, name, difficulty, duration, season } = req.body
 
     let activity = await Activities.findAll({
-        where: { name: name }
+        where: { name: name, difficulty:difficulty, duration:duration, season:season }
     });
+
     if (activity.length === 0) {
-
-
         
         activity = await Activities.create({ name, difficulty, duration, season })
 
@@ -187,17 +183,9 @@ router.post('/activities', async (req, res) => {
             where: { id: c }
         })
 
-
-
         activity.addCountry(country)
 
-
     });
-
-
-
-
-
 
     res.status(200).send(activity)
 
